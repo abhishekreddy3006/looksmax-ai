@@ -1,0 +1,14 @@
+node_modules/
+.expo/
+dist/
+.expo-shared/
+*.log
+.env
+.env.local
+backend/venv/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+web-build/

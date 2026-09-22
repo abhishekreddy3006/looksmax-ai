@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Refine",
+    "slug": "refine",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "refine",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FDFCFB"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.refine.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "We use your camera to capture photos for personalized appearance coaching. Your photos are private and encrypted.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to let you upload photos for analysis."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FDFCFB"
+      },
+      "package": "com.refine.app",
+      "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera for appearance analysis."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos for analysis."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
