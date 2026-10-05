@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, ActivityIndicator, ViewStyle, StyleProp, View } from 'react-native';
+import { Platform, Pressable, ActivityIndicator, ViewStyle, StyleProp, View } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/design/theme';
 import { Text } from '@/design/typography';
@@ -24,7 +24,13 @@ export function Button({ title, onPress, variant = 'primary', size = 'md', loadi
 
   const handlePress = () => {
     if (disabled || loading) return;
-    Haptics.selectionAsync();
+    if (Platform.OS !== 'web') {
+      try {
+        Haptics.selectionAsync();
+      } catch {
+        // Safe fallback if not available
+      }
+    }
     onPress?.();
   };
 
